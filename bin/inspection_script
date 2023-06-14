@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+import os
+import sys
+
+# 将 cli 包的路径添加到模块搜索路径中
+cli_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'cli'))
+sys.path.append(cli_path)
+
+from cli.check import Check
+from cli.report import Report
+
+if __name__ == '__main__':
+    check = Check()
+    check.generate()
+    report = Report()
+    report.generate()
+    sys.exit(0)
